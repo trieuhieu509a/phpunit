@@ -1,0 +1,11 @@
+name: Unit/integration tests
+on: [push, pull_request]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
+            - name: Start Docker containers
+              run: make init
+            - name: Run tests
+              run: make test
